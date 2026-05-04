@@ -8,6 +8,7 @@ on:
       - master
       - workos
       - rama_test
+
   pull_request:
     branches:
       - develop
@@ -23,6 +24,13 @@ jobs:
     strategy:
       matrix:
         php-version: ['8.4', '8.5']
+
+    # 🔥 FORZAR SQLITE GLOBALMENTE
+    env:
+      DB_CONNECTION: sqlite
+      DB_DATABASE: database/database.sqlite
+      APP_ENV: testing
+      APP_DEBUG: true
 
     steps:
       - name: Checkout code
