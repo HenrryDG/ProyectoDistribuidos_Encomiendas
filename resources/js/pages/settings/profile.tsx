@@ -20,15 +20,15 @@ export default function Profile({
 
     return (
         <>
-            <Head title="Profile settings" />
+            <Head title="Configuración" />
 
-            <h1 className="sr-only">Profile settings</h1>
+            <h1 className="sr-only">Configuración de Perfil</h1>
 
             <div className="space-y-6">
                 <Heading
                     variant="small"
-                    title="Profile information"
-                    description="Update your name and email address"
+                    title="Configuración de Perfil"
+                    description="Actualiza tu información de perfil y dirección de correo electrónico."
                 />
 
                 <Form
@@ -41,26 +41,64 @@ export default function Profile({
                     {({ processing, errors }) => (
                         <>
                             <div className="grid gap-2">
-                                <Label htmlFor="name">Name</Label>
+                                <Label htmlFor="nombre">Nombre</Label>
 
                                 <Input
-                                    id="name"
+                                    id="nombre"
                                     className="mt-1 block w-full"
-                                    defaultValue={auth.user.name}
-                                    name="name"
+                                    defaultValue={auth.user.nombre}
+                                    name="nombre"
                                     required
-                                    autoComplete="name"
+                                    autoComplete="nombre"
                                     placeholder="Full name"
                                 />
 
                                 <InputError
                                     className="mt-2"
-                                    message={errors.name}
+                                    message={errors.nombre}
                                 />
                             </div>
 
                             <div className="grid gap-2">
-                                <Label htmlFor="email">Email address</Label>
+                                <Label htmlFor="apellido">Apellido</Label>
+
+                                <Input
+                                    id="apellido"
+                                    className="mt-1 block w-full"
+                                    defaultValue={auth.user.apellido}
+                                    name="apellido"
+                                    required
+                                    autoComplete="apellido"
+                                    placeholder="Full name"
+                                />
+
+                                <InputError
+                                    className="mt-2"
+                                    message={errors.apellido}
+                                />
+                            </div>
+
+                            <div className="grid gap-2">
+                                <Label htmlFor="telefono">Teléfono</Label>
+
+                                <Input
+                                    id="telefono"
+                                    className="mt-1 block w-full"
+                                    defaultValue={auth.user.telefono}
+                                    name="telefono"
+                                    required
+                                    autoComplete="telefono"
+                                    placeholder="Full name"
+                                />
+
+                                <InputError
+                                    className="mt-2"
+                                    message={errors.telefono}
+                                />
+                            </div>
+
+                            <div className="grid gap-2">
+                                <Label htmlFor="email">Correo Electrónico</Label>
 
                                 <Input
                                     id="email"
@@ -70,7 +108,7 @@ export default function Profile({
                                     name="email"
                                     required
                                     autoComplete="username"
-                                    placeholder="Email address"
+                                    placeholder="direccion@ejemplo.com"
                                 />
 
                                 <InputError
@@ -96,20 +134,21 @@ export default function Profile({
 
                                         {status ===
                                             'verification-link-sent' && (
-                                            <div className="mt-2 text-sm font-medium text-green-600">
-                                                A new verification link has been
-                                                sent to your email address.
-                                            </div>
-                                        )}
+                                                <div className="mt-2 text-sm font-medium text-green-600">
+                                                    A new verification link has been
+                                                    sent to your email address.
+                                                </div>
+                                            )}
                                     </div>
                                 )}
 
-                            <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-4 ">
                                 <Button
                                     disabled={processing}
                                     data-test="update-profile-button"
+                                    className='cursor-pointer'
                                 >
-                                    Save
+                                    Guardar
                                 </Button>
                             </div>
                         </>
@@ -125,7 +164,7 @@ export default function Profile({
 Profile.layout = {
     breadcrumbs: [
         {
-            title: 'Profile settings',
+            title: 'Configuración de Perfil',
             href: edit(),
         },
     ],

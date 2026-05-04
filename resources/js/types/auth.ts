@@ -1,15 +1,29 @@
 export type User = {
     id: number;
-    name: string;
+
+    nombre: string;
+    apellido: string;
+
     email: string;
-    avatar?: string;
+    password?: string;
+
+    telefono: string;
+    carnet_identidad: string;
+    direccion?: string;
+
+    rol: 'admin' | 'encargado' | 'remitente';
+    estado: boolean;
+
     email_verified_at: string | null;
-    two_factor_enabled?: boolean;
+    remember_token?: string;
+
     created_at: string;
     updated_at: string;
+
+    avatar?: string;
+
     [key: string]: unknown;
 };
-
 export type Auth = {
     user: User;
 };
