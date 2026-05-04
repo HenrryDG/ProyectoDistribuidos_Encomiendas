@@ -14,10 +14,13 @@ test('registration screen can be rendered', function () {
 
 test('new users can register', function () {
     $response = $this->post(route('register.store'), [
-        'name' => 'Test User',
+        'nombre' => 'Test',
+        'apellido' => 'User',
         'email' => 'test@example.com',
         'password' => 'password',
         'password_confirmation' => 'password',
+        'telefono' => '70000000',
+        'carnet_identidad' => '12345678',
     ]);
 
     $this->assertAuthenticated();
