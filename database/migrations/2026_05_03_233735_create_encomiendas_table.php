@@ -33,7 +33,6 @@ return new class extends Migration
 
             // Detalles del paquete
             $table->text('descripcion')->nullable();
-            $table->boolean('es_fragil')->default(false);
 
             // Relaciones operativas
             $table->foreignId('estado_actual_id')
