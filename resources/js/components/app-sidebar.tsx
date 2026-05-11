@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/sidebar';
 import { dashboard} from '@/routes';
 import * as remitentes from '@/routes/remitentes';
+import * as ActualizacionEncomiendas from '@/routes/ActualizacionEncomiendas';
 import type { NavItem } from '@/types';
 
 const mainNavItems: NavItem[] = [
@@ -26,6 +27,11 @@ const mainNavItems: NavItem[] = [
     {
         title: 'Remitentes',
         href: remitentes.index(),
+        icon: Users,
+    },
+    {
+        title: 'Encomiendas Registradas',
+        href: ActualizacionEncomiendas.index(),
         icon: Users,
     },
 ];

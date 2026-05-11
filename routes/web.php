@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RemitentesController;
+use App\Http\Controllers\ActualizacionEncomiendasController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 
@@ -14,6 +15,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('remitentes', [RemitentesController::class, 'store'])->name('remitentes.store');
     Route::put('remitentes/{remitente}', [RemitentesController::class, 'update'])->name('remitentes.update');
     Route::delete('remitentes/{remitente}', [RemitentesController::class, 'destroy'])->name('remitentes.destroy');
-});
+    //Actualizacion de estado de encomiendas almacen
+    Route::get('Almacen/encomiendas', [ActualizacionEncomiendasController::class, 'index'])->name('ActualizacionEncomiendas.index');
+    Route::put(
+        'encomiendas/{encomienda}/almacen',
+        [ActualizacionEncomiendasController::class, 'actualizarEstadoAlmacen']
+    )->name('ActualizacionEncomiendas.actualizarEstadoAlmacen');});
 
 require __DIR__.'/settings.php';
