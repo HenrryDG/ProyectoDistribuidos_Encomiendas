@@ -16,6 +16,7 @@ import {
 import { dashboard} from '@/routes';
 import * as remitentes from '@/routes/remitentes';
 import * as ActualizacionEncomiendas from '@/routes/ActualizacionEncomiendas';
+import * as Encomiendas from '@/routes/encomiendas';
 import type { NavItem } from '@/types';
 
 const mainNavItems: NavItem[] = [
@@ -29,6 +30,11 @@ const mainNavItems: NavItem[] = [
         href: remitentes.index(),
         icon: Users,
     },
+    {   
+        title: 'Encomiendas',
+        href: Encomiendas.index(),
+        icon: Users,
+     },
     {
         title: 'Encomiendas Registradas',
         href: ActualizacionEncomiendas.index(),
