@@ -11,18 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('encomiendas', function (Blueprint $table) {
-            $table->dropColumn('es_fragil');
-        });
+        if (Schema::hasColumn('encomiendas', 'es_fragil')) {
+            Schema::table('encomiendas', function (Blueprint $table) {
+                $table->dropColumn('es_fragil');
+            });
+        }
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::table('encomiendas', function (Blueprint $table) {
-            $table->boolean('es_fragil')->default(false);
-        });
+        if (! Schema::hasColumn('encomiendas', 'es_fragil')) {
+            Schema::table('encomiendas', function (Blueprint $table) {
+                $table->boolean('es_fragil')->default(false);
+            });
+        }
     }
 };

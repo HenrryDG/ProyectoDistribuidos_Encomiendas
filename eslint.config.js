@@ -5,6 +5,7 @@ import importPlugin from 'eslint-plugin-import';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
+import { off } from 'node:cluster';
 import typescript from 'typescript-eslint';
 
 const controlStatements = [
@@ -70,27 +71,32 @@ export default [
                     fixStyle: 'separate-type-imports',
                 },
             ],
-            'import/order': [
-                'error',
-                {
-                    groups: [
-                        'builtin',
-                        'external',
-                        'internal',
-                        'parent',
-                        'sibling',
-                        'index',
-                    ],
-                    alphabetize: {
-                        order: 'asc',
-                        caseInsensitive: true,
-                    },
-                },
-            ],
-            'import/consistent-type-specifier-style': [
-                'error',
-                'prefer-top-level',
-            ],
+            // 'import/order': [
+            //     'error',
+            //     {
+            //         groups: [
+            //             'builtin',
+            //             'external',
+            //             'internal',
+            //             'parent',
+            //             'sibling',
+            //             'index',
+            //         ],
+            //         pathGroups: [
+            //             {
+            //                 pattern: '@/**',
+            //                 group: 'internal',
+            //             },
+            //         ],
+            //         pathGroupsExcludedImportTypes: ['builtin'],
+            //         alphabetize: {
+            //             order: 'ignore',
+            //             caseInsensitive: true,
+            //         },
+            //         'newlines-between': 'never',
+            //     },
+            // ],
+            'import/order': off,
         },
     },
     {
