@@ -17,6 +17,7 @@ import { dashboard} from '@/routes';
 import * as remitentes from '@/routes/remitentes';
 import * as ActualizacionEncomiendas from '@/routes/ActualizacionEncomiendas';
 import * as Encomiendas from '@/routes/encomiendas';
+import * as clientes from '@/routes/cliente';
 import type { NavItem } from '@/types';
 
 const mainNavItems: NavItem[] = [
@@ -38,6 +39,11 @@ const mainNavItems: NavItem[] = [
     {
         title: 'Encomiendas Registradas',
         href: ActualizacionEncomiendas.index(),
+        icon: Users,
+    },
+    {
+        title: 'Clientes',
+        href: clientes.index(),
         icon: Users,
     },
 ];

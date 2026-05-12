@@ -91,7 +91,7 @@ class EncomiendasController extends Controller
 // Registrar seguimiento inicial
 $encomienda->seguimiento()->create([
     'estado_id'   => $estadoInicial->id,
-    'usuario_id'  => auth()->id(), // Usuario que registra
+    'usuario_id'  => auth()->id, // Usuario que registra
     'evento'      => 'Registro de encomienda',
     'descripcion' => 'Encomienda registrada en el sistema.',
     'fecha'       => now(),
